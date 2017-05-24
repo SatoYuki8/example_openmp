@@ -9,8 +9,8 @@ comp:	matmul.c omp_matmul.c
 	gcc -o omp -fopenmp omp_matmul.c
 
 diff:	comp
-	./no_omp > no_omp.log
-	./omp > omp.log
+	./no_omp | tee no_omp.log
+	./omp | tee  omp.log
 	diff no_omp.log omp.log
 
 distclean:	clean
